@@ -1,0 +1,14 @@
+<div class="card mb-3">
+    <h4 class="card-title">
+        {{post.title}}
+    </h4>
+    {% include "store/includes/part_post/images.html" %}
+    <div class="card-body">
+        <p class="card-text">
+            {{post.body|truncatewords:150}}
+            <a href="{{post.get_absolute_url}}">Read more...</a>
+        </p>
+        {% include "store/includes/part_post/datepub.html" %}
+    </div>
+
+</div>

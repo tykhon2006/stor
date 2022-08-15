@@ -1,0 +1,13 @@
+{% extends "store/base_blog.html" %}
+
+{% block title %}
+    master gaming home
+{% endblock %}
+
+{% block content %}
+    <article>
+        {% for post in posts %}
+            {% include "store/includes/card_template.html" %}
+        {% endfor %}
+    </article>
+{% endblock %}
