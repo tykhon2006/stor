@@ -7,7 +7,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=150, unique=True)
     body = models.TextField(blank=True, db_index=True)
     date_pub = models.DateField(auto_now_add=True)
-    image = models.ImageField(upload_to="images/", default="images/default_image.jpg")
+    image = models.ImageField(upload_to="images/", default="images/default.jpg")
 
     def __str__(self):
         return self.title
