@@ -1,10 +1,10 @@
-<div class="card mb-3">
+<div class="card mb-3 ">
     <h4 class="card-title">
         {{post.title}}
     </h4>
     {% include "store/includes/part_post/images.html" %}
     <div class="card-body">
-        <p class="card-text">
+        <p class="card-body d-flex justify-content-center">
             {{post.body|truncatewords:150}}
             <a href="{{post.get_absolute_url}}">Read more...</a>
         </p>
