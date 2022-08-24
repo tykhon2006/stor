@@ -1,13 +1,20 @@
 {% extends "store/base_blog.html" %}
 
+
+
 {% block title %}
     store
 {% endblock %}
 
 {% block content %}
-    <article class="">
+    <article style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+        <script>
+                goods = 0;
+        </script>
         {% for post in posts %}
+            <script src="static/js/goods.js"></script>
             {% include "store/includes/card_template.html" %}
         {% endfor %}
     </article>
 {% endblock %}
+

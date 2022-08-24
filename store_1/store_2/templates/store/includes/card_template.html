@@ -4,10 +4,14 @@
     </h4>
     {% include "store/includes/part_post/images.html" %}
     <div class="card-body">
-        <p class="card-body d-flex justify-content-center">
-            {{post.body|truncatewords:150}}
-            <a href="{{post.get_absolute_url}}">Read more...</a>
+        <p class="card-text">
+            {{post.body|truncatewords:50}} <br>
+            <a href="{{post.get_absolute_url}}" style="text-decoration: none;">Read more...</a> <br>
         </p>
+        <div class="d-flex justify-content-between">
+            <p class="border-bottom border-success" style="width: fit-content;" >Price: <span >{{post.price}}</span></p>
+            <button type="button" class="btn btn-secondary">Add</button>
+        </div>
         {% include "store/includes/part_post/datepub.html" %}
     </div>
 
