@@ -58,20 +58,25 @@
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container mt-5 pt-3 ">
         {% block content %}
             no content
         {% endblock %}
-    </div>
 
+    </div>
     <footer style="min-height: 80px;" class="bg-black d-flex justify-content-around align-items-center ">
-        <div class="form-floating" style="width: 250px; max-height: 70px">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">Comments</label>
-        </div>
+        <select class="form-select form-select-sm" style="width: 15%" aria-label="No content">
+            <option selected>Rate our site</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
         <p class="text-light ">Copyright denied</p>
-        <div>
+        <div class="">
             <a style="text-decoration: none" href="#">
                 <img style="max-width: 35px;" class="img-footer-width" src="/media/images/social/facebook.png" />
             </a>

@@ -10,7 +10,7 @@
         </p>
         <div class="d-flex justify-content-between">
             <p class="border-bottom border-success" style="width: fit-content;" >Price: <span >{{post.price}}</span></p>
-            <button type="button" class="btn btn-secondary">Add</button>
+            <button type="button" class="btn btn-secondary" data-id="{{post.slug}}">Add</button>
         </div>
         {% include "store/includes/part_post/datepub.html" %}
     </div>
