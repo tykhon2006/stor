@@ -5,5 +5,9 @@
 {% endblock %}
 
 {% block content %}
+    <script>
+          goods = 0;
+    </script>
+    <script src="{{post.get_absolute_url}}static/js/goods.js"></script>
     {% include "store/includes/card.html" %}
 {% endblock %}

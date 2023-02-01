@@ -1,16 +1,16 @@
-<div class="card mb-3 ">
-    <h4 class="card-title">
+<div class="card mb-3 product">
+    <h4 class="card-title product__title">
         {{post.title}}
     </h4>
     {% include "store/includes/part_post/images.html" %}
-    <div class="card-body">
+    <div class="card-body ">
         <p class="card-text">
             {{post.body|truncatewords:50}} <br>
             <a href="{{post.get_absolute_url}}" style="text-decoration: none;">Read more...</a> <br>
         </p>
         <div class="d-flex justify-content-between">
-            <p class="border-bottom border-success" style="width: fit-content;" >Price: <span >{{post.price}}</span></p>
-            <button type="button" class="btn btn-secondary" data-id="{{post.slug}}">Add</button>
+            <p class="border-bottom border-success " style="width: fit-content;">Price: <span class="product__price">{{post.price}}</span></p>
+            <button type="button" class="btn btn-secondary product__add-cart" data-id="{{post.slug}}">Add</button>
         </div>
         {% include "store/includes/part_post/datepub.html" %}
     </div>

@@ -1,17 +1,20 @@
+"use strict"
+
+
 var modal = document.getElementById("cart");
 var btn = document.getElementById("incase");
 var close = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
-  modal.style.display = "block";
+    modal.style.display = "block";
 }
 
 close.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 }
 
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
