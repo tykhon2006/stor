@@ -53,14 +53,14 @@
         if (!cartData || Object.keys(cartData).length === 0) {
             totalItems = "Cart is clear";
         } else {
-            totalItems = '<table class=" w-100 product__table"><thead><tr class="d-flex justify-content-between"><th>Title</th><th>Price</th></tr></thead><tbody style="width: 700px;"class=" d-flex justify-content-between flex-column" >';
+            totalItems = '<table class=" w-100 product__table"><thead ><tr style="width: 35%;" class=" d-flex justify-content-between"><th>Title</th><th>Price</th></tr></thead><tbody>';
             for (const id in cartData) {
                 totalSum += +cartData[id][1];
             }
             totalItems = `<div class="cart__sum">${totalItems}<p>Total price: ${totalSum}</p></div>`
             for (const id in cartData) {
 
-                totalItems += '<tr>';
+                totalItems += '<tr class="bg-light border d-flex align-items-center justify-content-between" style="margin-bottom: 10px; padding: 5px;">';
                 for (let i = 0; i < cartData[id].length; i++) {
                     if (i == 2) {
                         totalItems += `<td><img class="card-img-top " style="width: 200px; height: 150px" src=${cartData[id][i]}></td>`
@@ -68,7 +68,7 @@
                         totalItems += `<td>${cartData[id][i]}</td>`;
                     }
                 }
-                totalItems += `<td><button data-id=${id} class="btn cart__delete btn_cart_delete"  >Delete</button></td>`;
+                totalItems += `<td style="float: right;"><button data-id=${id} class="btn cart__delete btn_cart_delete"  >Delete</button></td>`;
                 totalItems += '</tr>';
             }
             totalItems += '</tbody></table>';
