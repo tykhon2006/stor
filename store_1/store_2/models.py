@@ -13,3 +13,14 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post_detail_url", kwargs={"pk": self.pk})
+    
+class Order(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField(max_length=150)
+    product = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse("post_detail_url", kwargs={"pk": self.pk})
+    
+    def __str__(self):
+        return self.name

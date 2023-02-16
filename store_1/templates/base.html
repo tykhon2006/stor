@@ -20,8 +20,8 @@
     <header class="fixed-top" style="box-shadow: 0 0.05rem 1.8rem black; ">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid ">
-                <a class="navbar-brand" href="#">
-                    <img src="{{post.get_absolute_url}}media/images/logo.png" style="width: 40px" />
+                <a class="navbar-brand" href="{% url 'post_list_url' %}">
+                    <img src="{% static 'images/logo.png' %}" style="width: 40px" />
                 </a>
                 <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -83,17 +83,17 @@
 
 
     <div id="cart" class="modal" tabindex="-1">
-        <div class="modal-dialog ">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg modal-dialog-centered ">
+            <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title">Cart</h5>
+                    <h5 class="modal-title  ml-5">Your cart</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div id="cart-content" class="modal-body">
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="clear-cart" class="btn btn-secondary" data-bs-dismiss="modal">Clear cart</button>
+                    <button id="clear-cart" type="button" class="btn btn-danger" data-bs-dismiss="modal">Clear cart</button>
                 </div>
             </div>
         </div>

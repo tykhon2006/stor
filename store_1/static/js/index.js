@@ -4,7 +4,6 @@ import { renderCart, clearCart as clearCartFunc, addToCart as addToCartFunc, ite
 
 const addToCart = document.querySelectorAll(".product__add-cart");
 const cartCount = document.getElementById("cartCount");
-const cart = document.getElementById("cart");
 const cartContent = document.getElementById("cart-content");
 const clearCart = document.getElementById("clear-cart");
 const openCart = document.getElementById("incase");

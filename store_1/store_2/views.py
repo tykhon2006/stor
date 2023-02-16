@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Order
 from django.db.models import Q
 
 
@@ -17,6 +17,16 @@ def post_lists(request):
     return render(request, "store/index.html", context={"posts": posts})
 
 
-def post_detail(request, slug):
-    post = Post.objects.get(slug__iexact=slug)
+def post_detail(request, pk):
+    post = Post.objects.get(pk=pk)
     return render(request, "store/post_detail.html", context={"post": post})
+
+def saveOrder(request):
+    product = Post.objects.get(pk=request.POST["productId"])
+    order = Order()
+    order.name = request.POST["username"] 
+    order.email = request.POST["userEmail"] 
+    order.product = product
+    order.save()
+    return render(request, "store/ordered.html", context={"product": product})
+

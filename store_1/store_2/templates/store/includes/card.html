@@ -1,12 +1,49 @@
 <div class="card mb-3">
-    <h4 class="card-title" style="margin-left: 10%;">
+    <h2 class="card-title d-flex justify-content-center">
         {{post.title}}
-    </h4>
+    </h2>
     {% include "store/includes/part_post/images.html" %}
-    <div class="card-body">
-        <p class="card-text">
-            {{post.body}} <br> Price: {{post.price}}
+    <div class="card-body ">
+        <p class=" card-text ">
+            {{post.body}} <br>
+
         </p>
+        <div class="card-body d-flex justify-content-between ">
+            <h4>Price: {{post.price}}</h4>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#modalOrder">
+                Buy now
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade " id="modalOrder" tabindex="-1 " aria-labelledby="exampleModalLabel" aria-hidden="true ">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h1 class="modal-title fs-5 " id="exampleModalLabel ">{{post.title}}</h1>
+                    <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
+                </div>
+                <div class="modal-body ">
+                    <form method="POST" action="/saveOrder">
+                        {% csrf_token %}
+                        <div class="mb-3 ">
+                            <label for="username" class="form-label">Your name</label>
+                            <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="userEmail" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text ">We'll never share your email with anyone else.</div>
+                        </div>
+                        <input type="hidden" name="productId" value="{{post.id}}">
+                        <button type="submit" class="btn btn-primary ">Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

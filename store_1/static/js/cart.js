@@ -30,6 +30,7 @@
         const itemImage = parentBox.querySelector("img").src;
         if (!cartData.hasOwnProperty(itemId)) {
             cartData[itemId] = [itemTitle, itemPrice, itemImage];
+            console.log(cartData)
         }
         if (!setCartData(cartData)) {
             target.disabled = false;
@@ -50,9 +51,9 @@
         let totalSum = 0;
 
         if (!cartData || Object.keys(cartData).length === 0) {
-            totalItems = "Cart clear";
+            totalItems = "Cart is clear";
         } else {
-            totalItems = '<table class="product__table"><thead><tr><th>Title</th><th>Price</th></tr></thead><tbody>';
+            totalItems = '<table class=" w-100 product__table"><thead><tr class="d-flex justify-content-between"><th>Title</th><th>Price</th></tr></thead><tbody style="width: 700px;"class=" d-flex justify-content-between flex-column" >';
             for (const id in cartData) {
                 totalSum += +cartData[id][1];
             }
@@ -62,12 +63,12 @@
                 totalItems += '<tr>';
                 for (let i = 0; i < cartData[id].length; i++) {
                     if (i == 2) {
-                        totalItems += `<td><img src=${cartData[id][i]}></td>`
+                        totalItems += `<td><img class="card-img-top " style="width: 200px; height: 150px" src=${cartData[id][i]}></td>`
                     } else {
                         totalItems += `<td>${cartData[id][i]}</td>`;
                     }
                 }
-                totalItems += `<td><button class="btn cart__delete btn_cart_delete " data-id=${id} >Delete</button></td>`;
+                totalItems += `<td><button data-id=${id} class="btn cart__delete btn_cart_delete"  >Delete</button></td>`;
                 totalItems += '</tr>';
             }
             totalItems += '</tbody></table>';
@@ -89,6 +90,7 @@
     // удалить товар 
     export function deleteItemCart(e, cartContent, elem, addCart) {
         const cartData = getCartData();
+        console.log(cartData)
         delete cartData[e.target.dataset.id];
         setCartData(cartData);
         renderCart(cartContent, elem, addCart);
